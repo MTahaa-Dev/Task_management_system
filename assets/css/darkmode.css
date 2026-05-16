@@ -1,0 +1,203 @@
+/* ==========================================================================
+   Dark Mode Styles
+   ========================================================================== */
+
+[data-theme="dark"] {
+    --bg-color: #0F172A; /* Very dark blue/slate */
+    --card-bg: #1E293B; /* Lighter dark for cards */
+    --text-main: #F8FAFC;
+    --text-muted: #CBD5E1; /* Lightened for better readability */
+    --border-color: #334155;
+    
+    /* Modify shadows for dark mode */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+/* Improve text visibility across all small/secondary elements */
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] .text-secondary,
+[data-theme="dark"] small,
+[data-theme="dark"] .small {
+    color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .text-dark {
+    color: var(--text-main) !important;
+}
+
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4, 
+[data-theme="dark"] h5, 
+[data-theme="dark"] h6 {
+    color: var(--text-main);
+}
+
+/* Modals in Dark Mode */
+[data-theme="dark"] .modal-content {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .modal-header {
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .modal-footer {
+    border-top-color: var(--border-color);
+}
+
+[data-theme="dark"] .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Forms in Dark Mode */
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select,
+[data-theme="dark"] .input-group-text {
+    background-color: #1E293B; /* Slightly lighter than bg to pop */
+    border-color: var(--border-color);
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .form-control:disabled,
+[data-theme="dark"] .form-control[readonly] {
+    background-color: #1E293B; /* match editable background */
+    color: var(--text-muted);
+    opacity: 1;
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+    background-color: #1E293B;
+    color: var(--text-main);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(79, 70, 229, 0.25);
+}
+
+[data-theme="dark"] ::placeholder {
+    color: #94A3B8 !important;
+    opacity: 1;
+}
+
+[data-theme="dark"] .form-label,
+[data-theme="dark"] label {
+    color: #F1F5F9 !important;
+    font-weight: 500;
+}
+
+/* Global Search Input in Dark Mode */
+[data-theme="dark"] .global-search input {
+    background-color: #1E293B;
+    color: var(--text-main);
+    border-color: var(--border-color);
+}
+
+/* Dropdowns in Dark Mode */
+[data-theme="dark"] .dropdown-menu {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .dropdown-item {
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .dropdown-divider {
+    border-top-color: var(--border-color);
+}
+
+/* SweetAlert in Dark Mode */
+[data-theme="dark"] .swal2-popup {
+    background-color: var(--card-bg);
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .swal2-title,
+[data-theme="dark"] .swal2-html-container {
+    color: var(--text-main);
+}
+
+/* Sidebar in Dark Mode (Better contrast) */
+[data-theme="dark"] #sidebar {
+    background: #0F172A;
+    border-right: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] #sidebar ul li a {
+    color: #CBD5E1;
+}
+
+[data-theme="dark"] #sidebar ul li a:hover, 
+[data-theme="dark"] #sidebar ul li.active > a {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] #sidebar .sidebar-header {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+/* Tables in Dark Mode */
+[data-theme="dark"] .table {
+    --bs-table-bg: transparent;
+    --bs-table-color: var(--text-main);
+    --bs-table-striped-color: var(--text-main);
+    --bs-table-striped-bg: rgba(255, 255, 255, 0.02);
+    --bs-table-hover-color: var(--text-main);
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .table-premium th {
+    background-color: rgba(255, 255, 255, 0.03); /* Subtle separation from card bg */
+    color: var(--text-muted);
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .table-premium td {
+    color: var(--text-main);
+    background-color: transparent !important;
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .table-premium tbody tr:hover td {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* List Groups in Dark Mode */
+[data-theme="dark"] .list-group-item {
+    background-color: transparent;
+    color: var(--text-main);
+    border-color: var(--border-color);
+}
+
+/* Fix Bootstrap Light Classes in Dark Mode */
+[data-theme="dark"] .bg-light {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .btn-light {
+    background-color: #334155;
+    color: var(--text-main);
+    border-color: #475569;
+}
+
+[data-theme="dark"] .btn-light:hover {
+    background-color: #475569;
+    color: #fff;
+}
