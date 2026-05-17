@@ -5,35 +5,28 @@
  */
 
 // Database credentials
-define('DB_HOST', 'centerbeam.proxy.rlwy.net');
-define('DB_PORT', '56716'); // VERY IMPORTANT
-define('DB_NAME', 'railway');
-define('DB_USER', 'root');
-define('DB_PASS', 'gnZmhCIKxuJOMLDgSbtPSMQlLkjwHrYa');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'task_management_system');
+define('DB_USER', 'root'); // Change this in production
+define('DB_PASS', '');     // Change this in production
 
 try {
-
-    // DSN with PORT added
-    $dsn = "mysql:host=" . DB_HOST . 
-           ";port=" . DB_PORT . 
-           ";dbname=" . DB_NAME . 
-           ";charset=utf8mb4";
-
-    // PDO options
+    // Set DSN (Data Source Name)
+    $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4";
+    
+    // Set PDO options
     $options = [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // Throw exceptions on errors
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       // Fetch associative arrays by default
+        PDO::ATTR_EMULATE_PREPARES   => false,                  // Prevent SQL injection by using real prepared statements
     ];
-
-    // Create PDO connection
+    
+    // Create a PDO instance
     $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
-
-    // echo "Connected successfully";
-
+    
 } catch (PDOException $e) {
-
+    // If there is an error with the connection, stop the script and display it
+    // In production, this should be logged instead of displayed to the user
     die("Database connection failed: " . $e->getMessage());
-
 }
 ?>
